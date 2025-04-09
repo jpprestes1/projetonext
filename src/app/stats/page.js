@@ -11,7 +11,7 @@ export default function Stats() {
   const [erro, setErro] = useState(false);
 
   useEffect(() => {
-    const token = "ef764312-76a9-4c7d-a391-39f3d9e7680f"; 
+    const token = ""; 
     fetch(`https://fortnite-api.com/v2/stats/br/v2?name=${nickname}`, {
       method: "GET",
       headers: {
