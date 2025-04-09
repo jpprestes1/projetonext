@@ -11,7 +11,7 @@ export default function Stats() {
   const [erro, setErro] = useState(false);
 
   useEffect(() => {
-    const token = "token"; 
+    const token = "ef764312-76a9-4c7d-a391-39f3d9e7680f"; 
     fetch(`https://fortnite-api.com/v2/stats/br/v2?name=${nickname}`, {
       method: "GET",
       headers: {
@@ -67,11 +67,11 @@ export default function Stats() {
       </header>
       <main className="flex flex-col bg-gradient-to-br from-[#1B90DD] via-[#4C51F7] to-[#1B90DD] gap-[20px] row-start-2 items-center sm:items-start bg-cover bg-center w-[90%] h-full p-10 rounded-lg shadow-lg scrollbar-thin scrollbar-thumb-[#F3AF19] scrollbar-track-[#4C51F7]">
         <div className="flex flex-col gap-4 bg-[black] p-4 rounded-lg shadow-lg">
-          <p className="text-4xl font-bold">
+          <p className="text-4xl font-bold text-white">
             {nickname}
           </p>
           { stats ?
-            <p className="text-sm">
+            <p className="text-sm text-white">
               Tempo de jogo: {Math.floor(stats?.stats?.all?.overall?.minutesPlayed / 60)} horas e {stats?.stats?.all?.overall?.minutesPlayed % 60} minutos
             </p>
           :
@@ -81,66 +81,66 @@ export default function Stats() {
         { stats ?
         <><div className="flex flex-row gap-4 bg-[black] p-4 rounded-lg shadow-lg">
             <div>
-              <p className="text-lg font-bold">{stats?.stats?.all?.overall?.matches}</p>
-              <p>
+              <p className="text-lg font-bold text-white">{stats?.stats?.all?.overall?.matches}</p>
+              <p className="text-white">
                 Partidas jogadas
               </p>
             </div>
             <div>
-              <p className="text-lg font-bold">{stats?.stats?.all?.overall?.wins}</p>
-              <p>
+              <p className="text-lg font-bold text-white">{stats?.stats?.all?.overall?.wins}</p>
+              <p className="text-white">
                 Vitorias
               </p>
             </div>
             <div>
-              <p className="text-lg font-bold">{stats?.stats?.all?.overall?.winRate}</p>
-              <p>
+              <p className="text-lg font-bold text-white">{stats?.stats?.all?.overall?.winRate}</p>
+              <p className="text-white">
                 Taxa de vitória
               </p>
             </div>
           </div>
           <div className="flex flex-row gap-4 bg-[black] p-4 rounded-lg shadow-lg">
               <div>
-                <p className="text-lg font-bold">{stats?.stats?.all?.overall?.top3}</p>
-                <p>
+                <p className="text-lg font-bold text-white">{stats?.stats?.all?.overall?.top3}</p>
+                <p className="text-white">
                   Top 3
                 </p>
               </div>
               <div>
-                <p className="text-lg font-bold">{stats?.stats?.all?.overall?.top5}</p>
-                <p>
+                <p className="text-lg font-bold text-white">{stats?.stats?.all?.overall?.top5}</p>
+                <p className="text-white">
                   Top 5
                 </p>
               </div>
               <div>
-                <p className="text-lg font-bold">{stats?.stats?.all?.overall?.top10}</p>
-                <p>
+                <p className="text-lg font-bold text-white">{stats?.stats?.all?.overall?.top10}</p>
+                <p className="text-white">
                   Top 10
                 </p>
               </div>
             </div>
             <div className="flex flex-row gap-4 bg-[black] p-4 rounded-lg shadow-lg">
               <div>
-                <p className="text-lg font-bold">{stats?.stats?.all?.overall?.kills}</p>
-                <p>
+                <p className="text-lg font-bold text-white">{stats?.stats?.all?.overall?.kills}</p>
+                <p className="text-white">
                   Abates
                 </p>
               </div>
               <div>
-                <p className="text-lg font-bold">{stats?.stats?.all?.overall?.deaths}</p>
-                <p>
+                <p className="text-lg font-bold text-white">{stats?.stats?.all?.overall?.deaths}</p>
+                <p className="text-white">
                   Mortes
                 </p>
               </div>
               <div>
-                <p className="text-lg font-bold">{stats?.stats?.all?.overall?.kd}</p>
-                <p>
+                <p className="text-lg font-bold text-white">{stats?.stats?.all?.overall?.kd}</p>
+                <p className="text-white">
                   K/D
                 </p>
               </div>
             </div>
             <div className="flex flex-row gap-4 bg-[black] p-4 rounded-lg shadow-lg">
-              <p className="text-sm">
+              <p className="text-sm text-white">
                 Última vez online: {new Date(stats?.stats?.all?.overall?.lastModified).toLocaleString("pt-BR", {
                     day: "2-digit",
                     month: "2-digit",

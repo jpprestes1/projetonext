@@ -50,7 +50,7 @@ export default function News() {
 
       </header>
       <main className="flex flex-col bg-gradient-to-br from-[#1B90DD] via-[#4C51F7] to-[#1B90DD] gap-[32px] row-start-2 items-center sm:items-start bg-cover bg-center w-[90%] h-full p-10 rounded-lg shadow-lg scrollbar-thin scrollbar-thumb-[#F3AF19] scrollbar-track-[#4C51F7]">
-        <p className="text-2xl font-bold">
+        <p className="text-2xl font-bold text-white">
           NOVIDADES QUENTINHAS!
         </p>
         {dados ? (
@@ -58,8 +58,8 @@ export default function News() {
             {dados.map((news) => (
               <div key={news.id} className="flex flex-row gap-4 bg-[black] mb-4 p-4 rounded-lg shadow-lg">
                 <div >
-                  <li className="text-lg font-bold" >{news.title}</li>
-                  <p>
+                  <li className="text-lg font-bold text-white" >{news.title}</li>
+                  <p className="text-white">
                   {news.body}
                   </p>
                 </div>
@@ -76,7 +76,7 @@ export default function News() {
             ))}
           </ul>
         ) : (
-          <p>Carregando...</p>
+          <p className="text-white" >Carregando...</p>
         )}
       </main>
     </div>
