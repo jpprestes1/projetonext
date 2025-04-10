@@ -28,26 +28,37 @@ export default function News() {
     
     <div className="grid grid-rows-[20px_1fr_20px] bg-[black] items-center justify-items-center min-h-screen pt-8 gap-16 font-[family-name:var(--font-geist-sans)]">
       <header className="fixed top-0 left-0 items-center bg-gradient-to-br from-[#1B90DD] via-[#4C51F7] to-[#1B90DD]  w-full h-20 px-4 pt-2">
-        <nav className="flex items-center gap-8">
+<nav className="flex items-center gap-8">
           <Image
             src="/f-logo.png"
             alt="Logo do Fortnite"
             width={60}
             height={60}
           />
-          <a href="/" className="text-white hover:text-[#F3AF19]">
+          <a href="/" className="text-[orange] font-bold hover:text-[#F3AF19]">
             Home
           </a>
-          <a href="/news" className="text-[orange] font-bold hover:text-[#F3AF19]">
+          <a href="/news" className="text-white hover:text-[#F3AF19]">
             Novidades
           </a>
-          <button className="bg-[#F3AF19] text-black hover:bg-[#F3AF19] hover:text-white rounded-lg px-4 py-2 align-end" onClick={() => handleClick()}>
+          <button className="bg-[#F3AF19] text-black hover:bg-[#F3AF19] hover:scale-110 transition-transform duration-200 hover:text-white rounded-lg px-4 py-2" onClick={() => handleClick()}>
             <a className="flex items-center gap-2">
               Verificar Stats
             </a>
           </button>
+          
+          <div className="flex items-center justify-end w-[68%] h-full">
+            <button className="text-black rounded-lg px-4 py-2 align-end" onClick={() => handleLogout()}>
+              <Image 
+                src="/logout.png"
+                alt="Logout"
+                width={40}
+                height={40}
+                className="hover:scale-130 transition-transform duration-200"
+              />
+            </button>
+          </div>
         </nav>
-
       </header>
       <main className="flex flex-col bg-gradient-to-br from-[#1B90DD] via-[#4C51F7] to-[#1B90DD] gap-[32px] row-start-2 items-center sm:items-start bg-cover bg-center w-[90%] h-full p-10 rounded-lg shadow-lg scrollbar-thin scrollbar-thumb-[#F3AF19] scrollbar-track-[#4C51F7]">
         <p className="text-2xl font-bold text-white">

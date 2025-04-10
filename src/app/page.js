@@ -5,6 +5,24 @@ import React from "react";
 
 export default function Home() {
 
+  function handleLogout() {
+    fetch("/api/logout", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then((res) => {
+        if (res.ok) {
+          console.log("Logout bem-sucedido");
+          window.location.href = "/login"; // Redireciona para a página de login
+        } else {
+          console.error("Erro ao fazer logout");
+        }
+    })
+    .catch((err) => {
+      console.error("Erro na requisição:", err);
+    });
+  }
   function handleClick() {
     let nickname = prompt("Digite seu nickname:");
     if (nickname) {
@@ -28,11 +46,23 @@ export default function Home() {
           <a href="/news" className="text-white hover:text-[#F3AF19]">
             Novidades
           </a>
-          <button className="bg-[#F3AF19] text-black hover:bg-[#F3AF19] hover:text-white rounded-lg px-4 py-2 align-end" onClick={() => handleClick()}>
+          <button className="bg-[#F3AF19] text-black hover:bg-[#F3AF19] hover:scale-110 transition-transform duration-200 hover:text-white rounded-lg px-4 py-2" onClick={() => handleClick()}>
             <a className="flex items-center gap-2">
               Verificar Stats
             </a>
           </button>
+          
+          <div className="flex items-center justify-end w-[68%] h-full">
+            <button className="text-black rounded-lg px-4 py-2 align-end" onClick={() => handleLogout()}>
+              <Image 
+                src="/logout.png"
+                alt="Logout"
+                width={40}
+                height={40}
+                className="hover:scale-130 transition-transform duration-200"
+              />
+            </button>
+          </div>
         </nav>
       </header>
       <main className="flex flex-col bg-gradient-to-br from-[#1B90DD] via-[#4C51F7] to-[#1B90DD] gap-[32px] row-start-2 items-center sm:items-start bg-cover bg-center w-[90%] h-full p-10 rounded-lg shadow-lg">
