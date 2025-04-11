@@ -31,8 +31,8 @@ export default function Home() {
   }
   return (
     
-     <div className="grid grid-rows-[20px_1fr_20px] bg-[black] items-center justify-items-center min-h-screen pt-8 gap-16 font-[family-name:var(--font-geist-sans)]">
-      <header className="fixed top-0 left-0 items-center bg-gradient-to-br from-[#1B90DD] via-[#4C51F7] to-[#1B90DD]  w-full h-20 px-4 pt-2">
+     <div className="grid grid-rows-[20px_1fr_20px] bg-[#0B101D]  items-center justify-items-center min-h-screen pt-8 gap-16 font-[family-name:var(--font-geist-sans)]">
+      <header className="fixed top-0 left-0 items-center bg-[#0B101D] w-full h-20 px-4 pt-2">
         <nav className="flex items-center gap-8">
           <Image
             src="/f-logo.png"
@@ -65,7 +65,7 @@ export default function Home() {
           </div>
         </nav>
       </header>
-      <main className="flex flex-col bg-gradient-to-br from-[#1B90DD] via-[#4C51F7] to-[#1B90DD] gap-[32px] row-start-2 items-center sm:items-start bg-cover bg-center w-[90%] h-full p-10 rounded-lg shadow-lg">
+      <main className="flex flex-col bg-gradient-to-br from-[#0F2D5C] to-[#1D64C6] gap-[32px] row-start-2 items-center sm:items-start bg-cover bg-center w-[90%] h-full p-10 rounded-lg shadow-lg">
         <p className="text-2xl text-white font-bold">
           Este é um projeto de exemplo para demonstrar o uso do Next.js com Tailwind CSS.
         </p>
