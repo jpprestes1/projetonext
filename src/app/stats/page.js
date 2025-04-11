@@ -11,7 +11,7 @@ export default function Stats() {
   const [stats, setStats] = useState(null);
   const [erro, setErro] = useState(false);
   const [isCompare, setIsCompare] = useState(false);
-  const token = "ef764312-76a9-4c7d-a391-39f3d9e7680f"; 
+  const token = ""; 
   
   useEffect(() => {
     
