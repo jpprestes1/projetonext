@@ -11,57 +11,41 @@ export default function Stats() {
   const [stats, setStats] = useState(null);
   const [erro, setErro] = useState(false);
   const [isCompare, setIsCompare] = useState(false);
-  const token = "ef764312-76a9-4c7d-a391-39f3d9e7680f"; 
   
-  useEffect(() => {
-    
-    fetch(`https://fortnite-api.com/v2/stats/br/v2?name=${nickname}`, {
-      method: "GET",
-      headers: {
-        Authorization: token,
-      },
+  async function fetchStats(nick) {
+    const res = await fetch(`/api/stats?nickname=${encodeURIComponent(nick)}`, {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include' 
     })
-    .then(async (res) => {
-        const data = await res.json();
-        console.log("Resposta da API:", data.data);
+    let data = await res.json()
+    console.log("res", data)
+    if (res.ok) {
+      return data
+    } else {
+      console.error("Erro na requisição:", res);
+    }
+    return 
+  }
 
-        if (!res.ok) {
-          throw new Error(data.error || "Erro desconhecido");
-        }
-
-        setStats(data.data);
-      })
-      .catch((err) => {
-        console.error("Erro na requisição:", err);
-        setErro(true);
-      });
-    }, []);
+  useEffect( () => { 
+    async function fetchData() {
+      let stats = await fetchStats(nickname);
+      setStats(stats);
+    }
+    fetchData()
+  }, []);
 
   async function addCompare() {
     let nickCompare = prompt("Digite o nickname que deseja comparar:");
     if (!nickCompare) return; // Se o usuário cancelar, não faz nada
-    fetch(`https://fortnite-api.com/v2/stats/br/v2?name=${nickCompare}`, {
-      method: "GET",
-      headers: {
-        Authorization: token,
-      },
-    })
-    .then(async (res) => {
-        const data = await res.json();
-        console.log("Resposta da API:", data.data);
-
-        if (!res.ok) {
-          throw new Error(data.error || "Erro desconhecido");
-        }
-
-        setStatsCompare(data.data);
-        setIsCompare(true);
-      })
-      .catch((err) => {
-        console.error("Erro na requisição:", err);
-        setErro(true);
-      });
-
+    let statsCompare = await fetchStats(nickCompare);
+    if (statsCompare) {
+      setStatsCompare(statsCompare);
+      setIsCompare(true);
+    } else {
+      setErro(true);
+    }
   }
 
   function handleLogout() {
@@ -130,7 +114,7 @@ export default function Stats() {
         </nav>
       </header>
       <main className="flex flex-row bg-gradient-to-br from-[#0F2D5C] to-[#1D64C6] gap-[20px] row-start-2 items-center sm:items-start bg-cover bg-center w-[90%] h-full p-10 rounded-lg shadow-lg scrollbar-thin scrollbar-thumb-[#F3AF19] scrollbar-track-[#4C51F7]">
-        <div className="flex flex-col gap-4 p-4 rounded-lg shadow-lg w-[50%]">
+        <div className="flex flex-col gap-4 p-4 rounded-lg w-[50%]">
           <div className="flex flex-col gap-4 bg-[black] p-4 rounded-lg shadow-lg w-[80%]">
             <p className="text-4xl font-bold text-white">
               {nickname}
@@ -235,7 +219,7 @@ export default function Stats() {
           }
         
         </div>
-        <div className="flex flex-col gap-4 p-4 rounded-lg shadow-lg w-[50%]">
+        <div className="flex flex-col gap-4 p-4 rounded-lg w-[50%]">
         {statsCompare ?
         <div className="flex flex-col gap-4 bg-[black] p-4 rounded-lg shadow-lg w-[80%]">
           <p className="text-4xl font-bold text-white">
