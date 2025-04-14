@@ -25,6 +25,9 @@ export default function News() {
       },
     }).then((res) => {
         if (res.ok) {
+          localStorage.clear();
+          sessionStorage.clear();
+          document.cookie = "token=; Max-Age=0; path=/;";
           console.log("Logout bem-sucedido");
           window.location.href = "/login"; // Redireciona para a página de login
         } else {

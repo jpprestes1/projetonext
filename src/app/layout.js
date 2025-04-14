@@ -12,7 +12,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Forintite Stats",
+  title: "Fortnite Stats",
   icons: {
     icon: "/icon.png",
   },
