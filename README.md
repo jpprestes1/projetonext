@@ -25,8 +25,6 @@ Instale as dependências necessárias utilizando o gerenciador de pacotes de sua
 npm install
 # ou
 yarn install
-# ou
-pnpm install
 ```
 
 ### 4. Iniciar o servidor de desenvolvimento
@@ -36,8 +34,6 @@ Após instalar as dependências, inicie o servidor de desenvolvimento:
 npm run dev
 # ou
 yarn dev
-# ou
-pnpm dev
 ```
 
 Ou caso prefira, inicie o servidor no modo de produção:
@@ -46,8 +42,6 @@ Ou caso prefira, inicie o servidor no modo de produção:
 npm run start
 # ou
 yarn start
-# ou
-pnpm start
 ```
 
 Abra [http://localhost:3000](http://localhost:3000) no navegador para visualizar o projeto.
