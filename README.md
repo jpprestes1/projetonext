@@ -48,6 +48,13 @@ Abra [http://localhost:3000](http://localhost:3000) no navegador para visualizar
 
 ---
 
+## 📝 Observações
+
+- Certifique-se de configurar a variável de ambiente `FORTNITE_API_KEY` com sua chave de API do Fortnite.
+- O projeto utiliza o armazenamento local do navegador para salvar favoritos. Certifique-se de que o navegador permite o uso de `localStorage`.
+
+---
+
 ## 📂 Estrutura do Projeto
 
 O projeto está organizado da seguinte forma:
@@ -121,13 +128,6 @@ projetonext/
 
 - **Componentes**:
   - Componentes reutilizáveis como botões (`button.jsx`) e menus dropdown (`dropdown-menu.jsx`).
-
----
-
-## 📝 Observações
-
-- Certifique-se de configurar a variável de ambiente `FORTNITE_API_KEY` com sua chave de API do Fortnite.
-- O projeto utiliza o armazenamento local do navegador para salvar favoritos. Certifique-se de que o navegador permite o uso de `localStorage`.
 
 ---
 
