@@ -1,36 +1,137 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Projeto Next.js - Fortnite Stats
 
-## Getting Started
+Este é um projeto desenvolvido com [Next.js](https://nextjs.org) que utiliza a API do Fortnite para exibir estatísticas e novidades do jogo. O projeto também utiliza Tailwind CSS para estilização e outras bibliotecas modernas para melhorar a experiência do usuário.
 
-First, run the development server:
+## 🚀 Como executar o projeto
+
+### 1. Clonar o repositório
+Para começar, você precisa clonar este repositório em sua máquina local. Execute o seguinte comando no terminal:
+
+```bash
+git clone https://github.com/seu-usuario/projetonext.git
+```
+
+### 2. Acessar o diretório do projeto
+Entre no diretório do projeto clonado:
+
+```bash
+cd projetonext
+```
+
+### 3. Instalar as dependências
+Instale as dependências necessárias utilizando o gerenciador de pacotes de sua preferência:
+
+```bash
+npm install
+# ou
+yarn install
+# ou
+pnpm install
+```
+
+### 4. Iniciar o servidor de desenvolvimento
+Após instalar as dependências, inicie o servidor de desenvolvimento:
 
 ```bash
 npm run dev
-# or
+# ou
 yarn dev
-# or
+# ou
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abra [http://localhost:3000](http://localhost:3000) no navegador para visualizar o projeto.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📂 Estrutura do Projeto
 
-## Learn More
+O projeto está organizado da seguinte forma:
 
-To learn more about Next.js, take a look at the following resources:
+```
+projetonext/
+├── src/
+│   ├── app/
+│   │   ├── api/          # Rotas da API (ex.: autenticação, estatísticas, favoritos)
+│   │   ├── login/        # Página de login
+│   │   ├── news/         # Página de novidades do Fortnite
+│   │   ├── stats/        # Página de estatísticas do jogador
+│   │   ├── globals.css   # Estilos globais do projeto
+│   │   ├── layout.js     # Layout principal do projeto
+│   │   └── page.js       # Página inicial
+│   ├── components/       # Componentes reutilizáveis (ex.: botões, menus)
+│   ├── lib/              # Funções utilitárias (ex.: `cn` para classes CSS)
+│   └── middleware.js     # Middleware para proteger rotas
+├── public/               # Arquivos públicos (imagens, ícones, etc.)
+├── .gitignore            # Arquivos ignorados pelo Git
+├── package.json          # Dependências e scripts do projeto
+├── next.config.mjs       # Configurações do Next.js
+└── README.md             # Documentação do projeto
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## ✨ Funcionalidades Principais
 
-## Deploy on Vercel
+1. **Login e Autenticação**:
+   - Página de login com autenticação básica.
+   - Middleware para proteger rotas específicas.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2. **Estatísticas do Fortnite**:
+   - Busca estatísticas de jogadores utilizando a API do Fortnite.
+   - Comparação de estatísticas entre jogadores.
+   - Favoritar jogadores para acesso rápido.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+3. **Novidades do Fortnite**:
+   - Exibe as últimas novidades do jogo, incluindo imagens e descrições.
+
+4. **Favoritos**:
+   - Salva até 5 jogadores favoritos no armazenamento local do navegador.
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+- **Next.js**: Framework React para renderização no lado do servidor e geração de páginas estáticas.
+- **React**: Biblioteca para construção de interfaces de usuário.
+- **Tailwind CSS**: Framework CSS para estilização rápida e responsiva.
+- **Radix UI**: Componentes acessíveis e estilizados (ex.: Dropdown Menu).
+- **Fortnite API**: API para buscar estatísticas e novidades do jogo.
+- **LocalStorage**: Armazenamento local para salvar favoritos.
+- **Middleware do Next.js**: Proteção de rotas com redirecionamento para login.
+
+---
+
+## 📖 Como o projeto está organizado
+
+- **Páginas**:
+  - `/`: Página inicial com informações sobre o projeto.
+  - `/login`: Página de login para autenticação.
+  - `/news`: Página que exibe as últimas novidades do Fortnite.
+  - `/stats`: Página que exibe estatísticas de jogadores e permite comparação.
+
+- **API**:
+  - `/api/auth`: Rota para autenticação de usuários.
+  - `/api/stats`: Rota para buscar estatísticas de jogadores.
+  - `/api/logout`: Rota para realizar logout.
+  - `/api/getFavorites` e `/api/setFavorites`: Rotas para gerenciar favoritos.
+
+- **Componentes**:
+  - Componentes reutilizáveis como botões (`button.jsx`) e menus dropdown (`dropdown-menu.jsx`).
+
+---
+
+## 📝 Observações
+
+- Certifique-se de configurar a variável de ambiente `FORTNITE_API_KEY` com sua chave de API do Fortnite.
+- O projeto utiliza o armazenamento local do navegador para salvar favoritos. Certifique-se de que o navegador permite o uso de `localStorage`.
+
+---
+
+## 📚 Aprenda Mais
+
+Para aprender mais sobre as tecnologias utilizadas neste projeto, confira os links abaixo:
+
+- [Documentação do Next.js](https://nextjs.org/docs)
+- [Documentação do Tailwind CSS](https://tailwindcss.com/docs)
+- [API do Fortnite](https://fortnite-api.com/)
