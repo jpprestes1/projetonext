@@ -8,7 +8,7 @@ Este é um projeto desenvolvido com [Next.js](https://nextjs.org) que utiliza a 
 Para começar, você precisa clonar este repositório em sua máquina local. Execute o seguinte comando no terminal:
 
 ```bash
-git clone https://github.com/seu-usuario/projetonext.git
+git clone https://github.com/jpprestes1/projetonext.git
 ```
 
 ### 2. Acessar o diretório do projeto
@@ -38,6 +38,16 @@ npm run dev
 yarn dev
 # ou
 pnpm dev
+```
+
+Ou caso prefira, inicie o servidor no modo de produção:
+
+```bash
+npm run start
+# ou
+yarn start
+# ou
+pnpm start
 ```
 
 Abra [http://localhost:3000](http://localhost:3000) no navegador para visualizar o projeto.
@@ -95,7 +105,7 @@ projetonext/
 - **Next.js**: Framework React para renderização no lado do servidor e geração de páginas estáticas.
 - **React**: Biblioteca para construção de interfaces de usuário.
 - **Tailwind CSS**: Framework CSS para estilização rápida e responsiva.
-- **Radix UI**: Componentes acessíveis e estilizados (ex.: Dropdown Menu).
+- **Radix UI**: Componentes acessíveis e estilizados.
 - **Fortnite API**: API para buscar estatísticas e novidades do jogo.
 - **LocalStorage**: Armazenamento local para salvar favoritos.
 - **Middleware do Next.js**: Proteção de rotas com redirecionamento para login.
@@ -114,7 +124,6 @@ projetonext/
   - `/api/auth`: Rota para autenticação de usuários.
   - `/api/stats`: Rota para buscar estatísticas de jogadores.
   - `/api/logout`: Rota para realizar logout.
-  - `/api/getFavorites` e `/api/setFavorites`: Rotas para gerenciar favoritos.
 
 - **Componentes**:
   - Componentes reutilizáveis como botões (`button.jsx`) e menus dropdown (`dropdown-menu.jsx`).
@@ -128,10 +137,6 @@ projetonext/
 
 ---
 
-## 📚 Aprenda Mais
+## 📚 Documentação da API utilizada
 
-Para aprender mais sobre as tecnologias utilizadas neste projeto, confira os links abaixo:
-
-- [Documentação do Next.js](https://nextjs.org/docs)
-- [Documentação do Tailwind CSS](https://tailwindcss.com/docs)
 - [API do Fortnite](https://fortnite-api.com/)
