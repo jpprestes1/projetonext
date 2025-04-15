@@ -113,23 +113,18 @@ export default function Stats() {
     }
   }
 
-  async function changeBookmark(stats, type) {
+  async function changeBookmark(stats) {
     console.log("changeBookmark", stats)
     let nameKey = (stats.account.name).toLowerCase();
     let keys = Object.keys(bookmark);
-    if (keys.length > 5) {
-      alert("Você só pode salvar 5 contas!");
-      return;
-    }
     if (keys.includes(nameKey)) {
       delete bookmark[nameKey];
       localStorage.setItem("fortniteBase", JSON.stringify(bookmark));
-      if(type == 'primary') {
-        setImagePrimary("/bookmark-save.png");
-      }else{
-        setImageSecundary("/bookmark-save.png");
-      }
-      alert("Conta removida dos favoritos!");
+      updateSorting(itemToSort, bookmark);
+      return;
+    }
+    if (keys.length == 6) {
+      alert("Você só pode salvar 6 contas!");
       return;
     }
     bookmark[nameKey] = {
@@ -138,11 +133,7 @@ export default function Stats() {
       'kd': stats.stats.all.overall.kd,
       'minutesPlayed': stats.stats.all.overall.minutesPlayed,
     };
-    if(type == 'primary') {
-      setImagePrimary("/bookmark-saved.png");
-    }else{
-      setImageSecundary("/bookmark-saved.png");
-    }
+    updateSorting(itemToSort, bookmark);
     localStorage.setItem("fortniteBase", JSON.stringify(bookmark));
   }
 
@@ -151,7 +142,6 @@ export default function Stats() {
     delete bookmark[nameKey];
     updateSorting(itemToSort, bookmark);
     localStorage.setItem("fortniteBase", JSON.stringify(bookmark));
-    alert("Conta removida dos favoritos!");
   }
 
   function handleLogout() {
@@ -224,7 +214,7 @@ export default function Stats() {
               <p className="text-4xl font-bold text-white">
                 {nickname}
               </p>
-              <button className="text-black hover:scale-130 transition-transform duration-200 rounded-lg px-4 py-2" onClick={() => changeBookmark(stats, 'primary')}>
+              <button className="text-black hover:scale-130 transition-transform duration-200 rounded-lg px-4 py-2" onClick={() => changeBookmark(stats)}>
                   <Image
                     src={Object.keys(bookmark).includes((nickname).toLowerCase()) ? '/bookmark-saved.png' : '/bookmark-save.png'}
                     alt="Icone para salvar"
@@ -340,7 +330,7 @@ export default function Stats() {
             <p className="text-4xl font-bold text-white">
               {statsCompare?.account?.name}
             </p>
-            <button className="text-black hover:scale-130 transition-transform duration-200 rounded-lg px-4 py-2" onClick={() => changeBookmark(statsCompare, 'secundary')}>
+            <button className="text-black hover:scale-130 transition-transform duration-200 rounded-lg px-4 py-2" onClick={() => changeBookmark(statsCompare)}>
                 <Image
                   src={Object.keys(bookmark).includes((statsCompare?.account?.name).toLowerCase()) ? '/bookmark-saved.png' : '/bookmark-save.png'}
                   alt="Icone para salvar"
@@ -454,7 +444,7 @@ export default function Stats() {
           }
 
         </div>
-        <div className="flex flex-col pr-10 bg-gradient-to-br from-[#0C1221] to-[#0D1F3D] rounded-lg w-[20%] bg-[#0C182D] overflow-y-auto overflow-x-hidden h-[680px]">
+        <div className="flex flex-col pr-10 bg-gradient-to-br from-[#0C1221] to-[#0D1F3D] rounded-lg w-[20%] bg-[#0C182D] overflow-y-auto overflow-x-hidden h-[650px]">
           <div className="flex flex-col pt-4 ps-4 rounded-lg w-[100%]">
             <p className="text-2xl font-bold text-white">
               Favoritos
