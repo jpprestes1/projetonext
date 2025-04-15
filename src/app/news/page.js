@@ -13,7 +13,6 @@ export default function News() {
       .then(res => res.json())
       .then(data => {
         setDados(data.data.motds)
-        console.log(data.data.motds);
       })
       .catch(err => console.error('Erro:', err));
     }, []);

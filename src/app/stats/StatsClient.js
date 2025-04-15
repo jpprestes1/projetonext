@@ -36,7 +36,6 @@ export default function Stats() {
       setErro(true);
     });
     let data = await res.json()
-    console.log("res", data)
     if (res.ok) {
       return data
     } else {
@@ -49,7 +48,6 @@ export default function Stats() {
     let sorted;
     if(dict == '') {
       dict = bookmark;
-      console.log(dict)
     }
     if(position == 'minutesPlayed') {
       sorted = Object.entries(dict)
@@ -81,7 +79,6 @@ export default function Stats() {
     let saveUser = localStorage.getItem("fortniteBase");
     if (saveUser) {
       updateSorting(itemToSort, JSON.parse(saveUser));
-      console.log("bookmark", JSON.parse(saveUser))
       let keys = Object.keys(JSON.parse(saveUser));
       if (keys.includes((nickname).toLowerCase())) {
         setImagePrimary("/bookmark-saved.png");
@@ -97,7 +94,7 @@ export default function Stats() {
 
   async function addCompare() {
     let nickCompare = prompt("Digite o nickname que deseja comparar:");
-    if (!nickCompare) return; // Se o usuário cancelar, não faz nada
+    if (!nickCompare) return;
     setStatsCompare(null);
     let statsCompare = await fetchStats(nickCompare);
     if (statsCompare) {
@@ -114,7 +111,6 @@ export default function Stats() {
   }
 
   async function changeBookmark(stats) {
-    console.log("changeBookmark", stats)
     let nameKey = (stats.account.name).toLowerCase();
     let keys = Object.keys(bookmark);
     if (keys.includes(nameKey)) {
