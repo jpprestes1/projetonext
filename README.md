@@ -55,6 +55,20 @@ Abra [http://localhost:3000](http://localhost:3000) no navegador para visualizar
 
 ---
 
+## 🌐 Hospedagem
+
+Caso prefira testar clonar o repositório e configurar a key da API, o projeto está hospedado no render.com. Os servidores tem um delay para inicializar, por conta disso, pode ter um pouco de demora para abrir o login.
+
+Link para acesso: https://projetonext-3m4e.onrender.com
+
+O login tem como usuário 'admin' e senha '1234'. 
+
+Ao logar, você terá a opção de Home, Novidades e Verificar Stats. Ao clicar no botão Verificar Stats, abrirá um popup pedindo o nickname do jogador desejado para fazer a consulta. 
+
+Na tela de verificação de stats, você poderá adicionar outro nickname para poder comparar stats e salvar. Temos a aba de favoritos, local onde fica localizado alguns stats dos jogadores que foram salvos.
+
+---
+
 ## 📂 Estrutura do Projeto
 
 O projeto está organizado da seguinte forma:
